@@ -1,4 +1,4 @@
-package be.ucll.project.dto;
+package be.ucll.project.model.dto;
 
 import javax.validation.constraints.NotEmpty;
 

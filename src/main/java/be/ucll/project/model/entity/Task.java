@@ -1,4 +1,4 @@
-package be.ucll.project.domain;
+package be.ucll.project.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
     @NotEmpty

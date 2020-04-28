@@ -1,8 +1,8 @@
 package be.ucll.project.controller;
 
-import be.ucll.project.dto.SubTaskDTO;
-import be.ucll.project.dto.TaskDTO;
-import be.ucll.project.service.TaskService;
+import be.ucll.project.model.dto.SubTaskDTO;
+import be.ucll.project.model.dto.TaskDTO;
+import be.ucll.project.model.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

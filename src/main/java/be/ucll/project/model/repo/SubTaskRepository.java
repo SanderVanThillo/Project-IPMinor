@@ -1,6 +1,6 @@
-package be.ucll.project.repo;
+package be.ucll.project.model.repo;
 
-import be.ucll.project.domain.SubTask;
+import be.ucll.project.model.entity.SubTask;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

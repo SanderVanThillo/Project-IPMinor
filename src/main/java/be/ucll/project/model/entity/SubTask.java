@@ -1,4 +1,4 @@
-package be.ucll.project.domain;
+package be.ucll.project.model.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
