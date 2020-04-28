@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="header"></header>
+<main>
+    <form method="POST" action="#" th:action="@{/tasks/{id}/sub/create(id=${taskId})}" th:object="${subTaskDTO}">
+        <p>
+            <label for="title">Title</label>
+            <input id="title" type="text" th:field="*{title}">
+            <p th:errors="*{title}"></p>
+        </p>
+        <p>
+            <label for="description">Description</label>
+            <input id="description" type="text" th:field="*{description}">
+            <p th:errors="*{description}"></p>
+        </p>
+        <input type="submit" value="Add SubTask">
+    </form>
+</main>
+</body>
+</html>

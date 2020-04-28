@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview</title>
+</head>
+<body>
+<header th:replace="header"></header>
+<main>
+    <h1>Tasks</h1>
+    <div th:if="${not #lists.isEmpty(tasks)}">
+        <ul>
+            <li th:each="task: ${tasks}">
+                <a th:href="'/tasks/' + ${task.id}" th:text="${task.title + ': due' + task.deadline}"></a>
+            </li>
+        </ul>
+    </div>
+    <div th:if="${#lists.isEmpty(tasks)}">
+        <p>No tasks left to do!</p>
+    </div>
+    <a href="/tasks/new">Add task</a>
+</main>
+</body>
+</html>
+
+
+
+
