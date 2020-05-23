@@ -2,31 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Form</title>
+    <title th:text="#{form.title}"></title>
 </head>
 <body>
 <header th:replace="header"></header>
 <main>
-    <h2>Create Task</h2>
-    <form method="post" action="/tasks" th:object="${taskDTO}">
+    <h1 th:text="#{form.h1}"></h1>
+    <form method="post" action="#" th:action="@{/tasks}" th:object="${taskDTO}">
         <div>
-            <label for="title">Title:</label>
+            <label for="title" th:text="#{title}"></label>
             <input type="text" th:field="*{title}">
             <p th:errors="*{title}"></p>
         </div>
         <div>
-            <label for="description">Description:</label>
+            <label for="description" th:text="#{description}"></label>
             <input type="text" th:field="*{description}">
             <p th:errors="*{description}"></p>
         </div>
         <div>
-            <label for="deadline">Due date:</label>
+            <label for="deadline" th:text="#{deadline}"></label>
             <input type="datetime-local" th:field="*{deadline}">
             <p th:errors="*{deadline}"></p>
         </div>
-        <input type="submit" value="Submit">
+        <input type="submit" th:value="#{submit}">
     </form>
-    </div>
+    <a th:href="@{/tasks}" th:text="#{back}"></a>
 </main>
 </body>
 </html>

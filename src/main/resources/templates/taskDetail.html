@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{task.title}"></title>
+</head>
+<body>
+<header th:replace="header"></header>
+<main>
+    <h1 th:text="#{task.h1}"></h1>
+    <div th:if="${task == null}">
+        <p th:text="#{task.error}"></p>
+    </div>
+    <div th:if="${task != null}">
+        <table th:object="${task}">
+            <tr>
+                <td th:text="#{title}"></td>
+                <td th:text="*{title}"></td>
+            </tr>
+            <tr>
+                <td th:text="#{description}"></td>
+                <td th:text="*{description}"></td>
+            </tr>
+            <tr>
+                <td th:text="#{deadline}"></td>
+                <td th:text="*{deadline}"></td>
+            </tr>
+            <tr th:each="subTask: ${task.subTasks}">
+                <td th:text="#{task.subtask}"></td>
+                <td th:text="${subTask.title + ': ' + subTask.description}"></td>
+            </tr>
+            <tr>
+                <td><a sec:authorize-url="/tasks/edit/id" th:href="@{/tasks/edit/{id}(id=${task.id})}" th:text="#{task.edit}"></a></td>
+            </tr>
+            <tr>
+                <td><a sec:authorize-url="/tasks/id/sub/create" th:href="@{/tasks/{id}/sub/create(id=${task.id})}" th:text="#{task.add}"></a></td>
+            </tr>
+        </table>
+    </div>
+    <a th:href="@{/tasks}" th:text="#{back}"></a>
+</main>
+</body>
+</html>

@@ -1,10 +1,31 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <header th:fragment="header">
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/tasks">Overview Tasks</a></li>
+            <li><a href="/" th:text="#{home}"></a></li>
+            <li sec:authorize-url="/tasks"><a href="/tasks" th:text="#{overview}"></a></li>
+            <li sec:authorize-url="/tasks/new"><a href="/tasks/new" th:text="#{taskForm}"></a></li>
         </ul>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" th:value="#{signOut}"/>
+        </form>
+        <span th:text="#{lang.change}"></span>:
+        <select id="locales">
+            <option value=""></option>
+            <option value="en" th:text="#{lang.eng}"></option>
+            <option value="nl" th:text="#{lang.nl}"></option>
+        </select>
     </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#locales").change(function () {
+                var selectedOption = $('#locales').val();
+                if (selectedOption != ''){
+                    window.location.replace('?lang=' + selectedOption);
+                }
+            });
+        });
+    </script>
 </header>

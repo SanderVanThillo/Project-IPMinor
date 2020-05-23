@@ -3,9 +3,10 @@ package be.ucll.project.model.dto;
 import javax.validation.constraints.NotEmpty;
 
 public class SubTaskDTO {
+    private Long id;
+
     @NotEmpty
     private String title, description;
-    private Long id;
 
     public Long getId() {
         return id;

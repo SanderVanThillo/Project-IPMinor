@@ -5,8 +5,6 @@ import be.ucll.project.model.dto.SubTaskDTO;
 import be.ucll.project.model.dto.TaskDTO;
 import be.ucll.project.model.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -33,17 +31,17 @@ public class TaskRestController {
     }
 
     @PostMapping("tasks")
-    public void addNewTask(@RequestBody @Valid TaskDTO taskDTO){
-        taskService.addTask(taskDTO);
+    public TaskDTO addNewTask(@RequestBody @Valid TaskDTO taskDTO){
+        return taskService.addTask(taskDTO);
     }
 
     @PutMapping("tasks/edit/{id}")
-    public void updateTask(@RequestBody @Valid TaskDTO taskDTO, @PathVariable("id") Long id){
-        taskService.updateTask(taskDTO);
+    public TaskDTO updateTask(@RequestBody @Valid TaskDTO taskDTO, @PathVariable("id") Long id){
+        return taskService.updateTask(taskDTO);
     }
 
     @PostMapping("tasks/{id}/sub/create")
-    public void addSubTask(@PathVariable("id") Long id, @RequestBody @Valid SubTaskDTO subTaskDTO) {
-        taskService.addSubTask(id, subTaskDTO);
+    public SubTaskDTO addSubTask(@PathVariable("id") Long id, @RequestBody @Valid SubTaskDTO subTaskDTO) {
+        return taskService.addSubTask(id, subTaskDTO);
     }
 }

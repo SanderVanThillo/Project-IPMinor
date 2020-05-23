@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{edit.title}"></title>
+</head>
+<body>
+<header th:replace="header"></header>
+<main>
+    <h1 th:text="#{edit.h1}"></h1>
+    <form method="post" action="#" th:action="@{/tasks/edit/{id}(id=${taskDTO.id})}" th:object="${taskDTO}">
+        <div>
+            <label for="title" th:text="#{title}"></label>
+            <input type="text" th:field="*{title}" required>
+            <p th:errors="*{title}"></p>
+        </div>
+        <div>
+            <label for="description" th:text="#{description}"></label>
+            <input type="text" th:field="*{description}" required>
+            <p th:errors="*{description}"></p>
+        </div>
+        <div>
+            <label for="deadline" th:text="#{deadline}"></label>
+            <input type="datetime-local" th:field="*{deadline}" required>
+            <p th:errors="*{deadline}"></p>
+        </div>
+        <input type="submit" th:value="#{submit}">
+    </form>
+    <a th:href="@{/tasks/{id}(id=${taskDTO.id})}" th:text="#{back}"></a>
+</main>
+</body>
+</html>

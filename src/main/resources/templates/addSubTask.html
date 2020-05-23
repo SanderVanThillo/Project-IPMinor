@@ -2,24 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{subTask.title}"></title>
 </head>
 <body>
 <header th:replace="header"></header>
 <main>
+    <h1 th:text="#{subTask.h1}"></h1>
     <form method="POST" action="#" th:action="@{/tasks/{id}/sub/create(id=${taskId})}" th:object="${subTaskDTO}">
         <p>
-            <label for="title">Title</label>
+            <label for="title" th:text="#{title}"></label>
             <input id="title" type="text" th:field="*{title}">
             <p th:errors="*{title}"></p>
         </p>
         <p>
-            <label for="description">Description</label>
+            <label for="description" th:text="#{description}"></label>
             <input id="description" type="text" th:field="*{description}">
             <p th:errors="*{description}"></p>
         </p>
-        <input type="submit" value="Add SubTask">
+        <input type="submit" th:value="#{submit}">
     </form>
+    <a th:href="@{/tasks/{id}(id=${taskId})}" th:text="#{back}"></a>
 </main>
 </body>
 </html>

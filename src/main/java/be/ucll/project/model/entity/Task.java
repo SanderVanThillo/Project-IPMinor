@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,7 @@ public class Task {
     private LocalDateTime deadline;
 
     @OneToMany
-    private List<SubTask> subTasks;
+    private List<SubTask> subTasks = new ArrayList<>();
 
     public Task() {}
 

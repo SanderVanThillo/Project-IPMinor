@@ -9,7 +9,7 @@ public interface TaskService {
 
     List<TaskDTO> getTasks();
     TaskDTO getTask(Long id);
-    void addTask(TaskDTO taskDTO);
-    void updateTask(TaskDTO taskDTO);
+    TaskDTO addTask(TaskDTO taskDTO);
+    TaskDTO updateTask(TaskDTO taskDTO);
     SubTaskDTO addSubTask(Long id, SubTaskDTO subTaskDTO);
 }

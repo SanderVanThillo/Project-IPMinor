@@ -15,17 +15,9 @@ public class SubTask {
     @ManyToOne
     private Task task;
 
-    public SubTask() {
-    }
+    public SubTask() { }
 
     public SubTask(String title, String description, Task task) {
-        this.title = title;
-        this.description = description;
-        this.task = task;
-    }
-
-    public SubTask(Long id, String title, String description, Task task) {
-        this.id = id;
         this.title = title;
         this.description = description;
         this.task = task;

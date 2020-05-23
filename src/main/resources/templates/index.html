@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title th:text="#{home}"></title>
 </head>
 <body>
 <header th:replace="header"></header>
 <main>
-    <h1>Welcome to your task manager!</h1>
+    <h1 th:text="#{index.h1}"></h1>
 </main>
 </body>
 </html>
